@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="large-6 large-offset-3 columns">
+
+  <li><%= link_to "Add new Car", new_car_path%></li>
+  <li><%= link_to "Add new manufacturer", new_manufacturer_path%></li>
+  <li><%= link_to "Home", manufacturers_path%></li>
+
+  <h1>Car Details</h1>
+
+  <ul>
+    <% @cars.each do |car| %>
+      <li>Model : <%= car.model %></li>
+      <li>Color : <%= car.color %></li>
+      <li>Mileage : <%= car.mileage.round(0) %></li>
+      <li>Year : <%= car.year.year %></li>
+      <li>Manufacturer : <%= car.manufacturer.name %></li>
+      <br>
+    <% end %><br>
+  </ul>
+
+  </div>
+</div>

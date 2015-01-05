@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="large-8 large-offset-2 columns">
+    <li><%= link_to "Home", manufacturers_path%></li>
+    <li><%= link_to "Add new Car", new_car_path %></li>
+    <li><%= link_to "View all Cars", cars_path%></li>
+    <%= form_for(@manufacturer) do |f| %>
+
+    <% if @manufacturer.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= "#{@manufacturer.errors.count} errors prevented the manufacturer from being saved" %></h2>
+        <ul>
+          <% @manufacturer.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+
+      <h1>Add new manufacturer</h1>
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="field">
+        <h3> Choose country </h3>
+        <%=select_tag "country", options_for_select(@countries, selected: ['United States', 'US'])%>
+        </div>
+
+      <div class="field">
+        <%= f.label :description %><br />
+        <%= f.text_field :description %>
+      </div>
+      <div class="actions">
+      <%= f.submit "Submit" %>
+      </div><br>
+
+    <% end %>
+
+
+  </div>
+</div>

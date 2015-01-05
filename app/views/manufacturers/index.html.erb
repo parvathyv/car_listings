@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="large-6 large-offset-3 columns">
+    <li><%= link_to "Add new Manufacturer", new_manufacturer_path %></li>
+    <li><%= link_to "Add new Car", new_car_path %></li>
+    <li><%= link_to "View all Cars", cars_path%></li>
+    <h1>Manufacturers</h1>
+
+    <ul>
+      <% @manufacturers.each do |manufacturer| %>
+        <li><%= manufacturer.name%> - <%=manufacturer.country%></li>
+        <li>-------------</li>
+        <p><%manufacturer.cars.each do|car|%>
+        <li>Model : <%=car.model%></li>
+        <%end%></p><br>
+     <% end %>
+    </ul>
+
+  </div>
+</div>
